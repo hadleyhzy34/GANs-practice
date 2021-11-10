@@ -1,5 +1,5 @@
 # Root directory for dataset
-dataroot = "data/celeba"
+dataroot = "celeba"
 
 # Number of workers for dataloader
 workers = 2
