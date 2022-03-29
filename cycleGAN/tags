@@ -1,0 +1,93 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+D_A	cyclegan.py	/^    D_A = D_A.cuda()$/;"	v
+D_A	cyclegan.py	/^D_A = Discriminator(input_shape)$/;"	v
+D_B	cyclegan.py	/^    D_B = D_B.cuda()$/;"	v
+D_B	cyclegan.py	/^D_B = Discriminator(input_shape)$/;"	v
+Discriminator	models.py	/^class Discriminator(nn.Module):$/;"	c
+G_AB	cyclegan.py	/^    G_AB = G_AB.cuda()$/;"	v
+G_AB	cyclegan.py	/^G_AB = GeneratorResNet(input_shape, opt.n_residual_blocks)$/;"	v
+G_BA	cyclegan.py	/^    G_BA = G_BA.cuda()$/;"	v
+G_BA	cyclegan.py	/^G_BA = GeneratorResNet(input_shape, opt.n_residual_blocks)$/;"	v
+GeneratorResNet	models.py	/^class GeneratorResNet(nn.Module):$/;"	c
+ImageDataset	datasets.py	/^class ImageDataset(Dataset):$/;"	c
+LambdaLR	utils.py	/^class LambdaLR:$/;"	c
+ReplayBuffer	utils.py	/^class ReplayBuffer:$/;"	c
+ResidualBlock	models.py	/^class ResidualBlock(nn.Module):$/;"	c
+Tensor	cyclegan.py	/^Tensor = torch.cuda.FloatTensor if cuda else torch.Tensor$/;"	v
+__getitem__	datasets.py	/^    def __getitem__(self, index):$/;"	m	class:ImageDataset	file:
+__init__	datasets.py	/^    def __init__(self, root, transforms_=None, unaligned=False, mode="train"):$/;"	m	class:ImageDataset
+__init__	models.py	/^    def __init__(self, in_features):$/;"	m	class:ResidualBlock
+__init__	models.py	/^    def __init__(self, input_shape):$/;"	m	class:Discriminator
+__init__	models.py	/^    def __init__(self, input_shape, num_residual_blocks):$/;"	m	class:GeneratorResNet
+__init__	utils.py	/^    def __init__(self, max_size=50):$/;"	m	class:ReplayBuffer
+__init__	utils.py	/^    def __init__(self, n_epochs, offset, decay_start_epoch):$/;"	m	class:LambdaLR
+__len__	datasets.py	/^    def __len__(self):$/;"	m	class:ImageDataset	file:
+batch_size	cyclegan.py	/^    batch_size=5,$/;"	v
+batch_size	cyclegan.py	/^    batch_size=opt.batch_size,$/;"	v
+batches_done	cyclegan.py	/^        batches_done = epoch * len(dataloader) + i$/;"	v
+batches_left	cyclegan.py	/^        batches_left = opt.n_epochs * len(dataloader) - batches_done$/;"	v
+criterion_GAN	cyclegan.py	/^criterion_GAN = torch.nn.MSELoss()$/;"	v
+criterion_cycle	cyclegan.py	/^criterion_cycle = torch.nn.L1Loss()$/;"	v
+criterion_identity	cyclegan.py	/^criterion_identity = torch.nn.L1Loss()$/;"	v
+cuda	cyclegan.py	/^cuda = torch.cuda.is_available()$/;"	v
+dataloader	cyclegan.py	/^dataloader = DataLoader($/;"	v
+discriminator_block	models.py	/^        def discriminator_block(in_filters, out_filters, normalize=True):$/;"	f	function:Discriminator.__init__
+fake	cyclegan.py	/^        fake = Variable(Tensor(np.zeros((real_A.size(0), *D_A.output_shape))), requires_grad=False)$/;"	v
+fake_A	cyclegan.py	/^        fake_A = G_BA(real_B)$/;"	v
+fake_A_	cyclegan.py	/^        fake_A_ = fake_A_buffer.push_and_pop(fake_A)$/;"	v
+fake_A_buffer	cyclegan.py	/^fake_A_buffer = ReplayBuffer()$/;"	v
+fake_B	cyclegan.py	/^        fake_B = G_AB(real_A)$/;"	v
+fake_B_	cyclegan.py	/^        fake_B_ = fake_B_buffer.push_and_pop(fake_B)$/;"	v
+fake_B_buffer	cyclegan.py	/^fake_B_buffer = ReplayBuffer()$/;"	v
+forward	models.py	/^    def forward(self, img):$/;"	m	class:Discriminator
+forward	models.py	/^    def forward(self, x):$/;"	m	class:GeneratorResNet
+forward	models.py	/^    def forward(self, x):$/;"	m	class:ResidualBlock
+input_shape	cyclegan.py	/^input_shape = (opt.channels, opt.img_height, opt.img_width)$/;"	v
+loss_D	cyclegan.py	/^        loss_D = (loss_D_A + loss_D_B) \/ 2$/;"	v
+loss_D_A	cyclegan.py	/^        loss_D_A = (loss_real + loss_fake) \/ 2$/;"	v
+loss_D_B	cyclegan.py	/^        loss_D_B = (loss_real + loss_fake) \/ 2$/;"	v
+loss_G	cyclegan.py	/^        loss_G = loss_GAN + opt.lambda_cyc * loss_cycle + opt.lambda_id * loss_identity$/;"	v
+loss_GAN	cyclegan.py	/^        loss_GAN = (loss_GAN_AB + loss_GAN_BA) \/ 2$/;"	v
+loss_GAN_AB	cyclegan.py	/^        loss_GAN_AB = criterion_GAN(D_B(fake_B), valid)$/;"	v
+loss_GAN_BA	cyclegan.py	/^        loss_GAN_BA = criterion_GAN(D_A(fake_A), valid)$/;"	v
+loss_cycle	cyclegan.py	/^        loss_cycle = (loss_cycle_A + loss_cycle_B) \/ 2$/;"	v
+loss_cycle_A	cyclegan.py	/^        loss_cycle_A = criterion_cycle(recov_A, real_A)$/;"	v
+loss_cycle_B	cyclegan.py	/^        loss_cycle_B = criterion_cycle(recov_B, real_B)$/;"	v
+loss_fake	cyclegan.py	/^        loss_fake = criterion_GAN(D_A(fake_A_.detach()), fake)$/;"	v
+loss_fake	cyclegan.py	/^        loss_fake = criterion_GAN(D_B(fake_B_.detach()), fake)$/;"	v
+loss_id_A	cyclegan.py	/^        loss_id_A = criterion_identity(G_BA(real_A), real_A)$/;"	v
+loss_id_B	cyclegan.py	/^        loss_id_B = criterion_identity(G_AB(real_B), real_B)$/;"	v
+loss_identity	cyclegan.py	/^        loss_identity = (loss_id_A + loss_id_B) \/ 2$/;"	v
+loss_real	cyclegan.py	/^        loss_real = criterion_GAN(D_A(real_A), valid)$/;"	v
+loss_real	cyclegan.py	/^        loss_real = criterion_GAN(D_B(real_B), valid)$/;"	v
+lr_scheduler_D_A	cyclegan.py	/^lr_scheduler_D_A = torch.optim.lr_scheduler.LambdaLR($/;"	v
+lr_scheduler_D_B	cyclegan.py	/^lr_scheduler_D_B = torch.optim.lr_scheduler.LambdaLR($/;"	v
+lr_scheduler_G	cyclegan.py	/^lr_scheduler_G = torch.optim.lr_scheduler.LambdaLR($/;"	v
+num_workers	cyclegan.py	/^    num_workers=1,$/;"	v
+num_workers	cyclegan.py	/^    num_workers=opt.n_cpu,$/;"	v
+opt	cyclegan.py	/^opt = parser.parse_args()$/;"	v
+optimizer_D_A	cyclegan.py	/^optimizer_D_A = torch.optim.Adam(D_A.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))$/;"	v
+optimizer_D_B	cyclegan.py	/^optimizer_D_B = torch.optim.Adam(D_B.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))$/;"	v
+optimizer_G	cyclegan.py	/^optimizer_G = torch.optim.Adam($/;"	v
+parser	cyclegan.py	/^parser = argparse.ArgumentParser()$/;"	v
+prev_time	cyclegan.py	/^        prev_time = time.time()$/;"	v
+prev_time	cyclegan.py	/^prev_time = time.time()$/;"	v
+push_and_pop	utils.py	/^    def push_and_pop(self, data):$/;"	m	class:ReplayBuffer
+real_A	cyclegan.py	/^        real_A = Variable(batch["A"].type(Tensor))$/;"	v
+real_B	cyclegan.py	/^        real_B = Variable(batch["B"].type(Tensor))$/;"	v
+recov_A	cyclegan.py	/^        recov_A = G_BA(fake_B)$/;"	v
+recov_B	cyclegan.py	/^        recov_B = G_AB(fake_A)$/;"	v
+sample_images	cyclegan.py	/^def sample_images(batches_done):$/;"	f
+shuffle	cyclegan.py	/^    shuffle=True,$/;"	v
+step	utils.py	/^    def step(self, epoch):$/;"	m	class:LambdaLR
+time_left	cyclegan.py	/^        time_left = datetime.timedelta(seconds=batches_left * (time.time() - prev_time))$/;"	v
+to_rgb	datasets.py	/^def to_rgb(image):$/;"	f
+transforms_	cyclegan.py	/^transforms_ = [$/;"	v
+val_dataloader	cyclegan.py	/^val_dataloader = DataLoader($/;"	v
+valid	cyclegan.py	/^        valid = Variable(Tensor(np.ones((real_A.size(0), *D_A.output_shape))), requires_grad=False)$/;"	v
+weights_init_normal	models.py	/^def weights_init_normal(m):$/;"	f
